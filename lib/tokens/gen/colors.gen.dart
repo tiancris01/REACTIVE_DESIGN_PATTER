@@ -20,13 +20,13 @@ class ColorsToken {
   static const Color error = Color(0xFFF24E1E);
 
   /// Color: #D3D3D3
-  static const Color gray = Color(0xFFD3D3D3);
+  static const Color grey = Color(0xFFD3D3D3);
 
   /// Color: #6342E8
   static const Color primary = Color(0xFF6342E8);
 
   /// Color: #6C63FF
-  static const Color secundary = Color(0xFF6C63FF);
+  static const Color secondary = Color(0xFF6C63FF);
 
   /// Color: #A573FF
   static const Color tertiary = Color(0xFFA573FF);
