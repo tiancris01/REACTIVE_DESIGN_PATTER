@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- App Colors -->
+
+    <!-- Primary -->
+    <color name ="primary">#6342E8</color>
+    <!-- Secundary -->
+    <color name ="secondary">#6C63FF</color>
+    <!-- Primary -->
+    <color name ="tertiary">#A573FF</color>
+    <!-- Error -->
+    <color name ="error">#F24E1E</color>
+    <!-- Primary -->
+    <color name ="black">#000000</color>
+    <!-- Primary -->
+    <color name ="white">#FFFFFF</color>
+    <!-- Primary -->
+    <color name ="grey">#D3D3D3</color>
+
+</resources>
