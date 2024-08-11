@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:reactive_design_pattern/tokens/gen/colors.gen.dart';
+import 'package:reactomic_design/tokens/gen/colors.gen.dart';
 
 class ColorsFoundation {
   ColorsFoundation._();

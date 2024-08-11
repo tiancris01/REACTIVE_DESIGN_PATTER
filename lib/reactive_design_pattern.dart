@@ -1,1 +1,0 @@
-library reactive_design_pattern;

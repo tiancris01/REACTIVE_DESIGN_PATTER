@@ -1,4 +1,4 @@
-name: reactive_design_pattern
+name: reactomic_design
 description: "A new Flutter package project."
 version: 0.0.1
 homepage: https://example.com
@@ -67,17 +67,17 @@ flutter:
   fonts:
     - family: Poppins
       fonts:
-        - asset: fonts/Poppins-Regular.ttf
-        - asset: fonts/Poppins-Bold.ttf
+        - asset: assets/fonts/poppins/Poppins-Regular.ttf
+        - asset: assets/fonts/poppins/Poppins-Bold.ttf
           weight: 700
-        - asset: fonts/Poppins-Italic.ttf
+        - asset: assets/fonts/poppins/Poppins-Italic.ttf
           style: italic
     - family: Lato
       fonts:
-        - asset: fonts/Lato-Regular.ttf
-        - asset: fonts/Lato-Bold.ttf
+        - asset: assets/fonts/lato/Lato-Regular.ttf
+        - asset: assets/fonts/lato/Lato-Bold.ttf
           weight: 700
-        - asset: fonts/Lato-Italic.ttf
+        - asset: assets/fonts/lato/Lato-Italic.ttf
           style: italic
 #
 # For details regarding fonts in packages, see

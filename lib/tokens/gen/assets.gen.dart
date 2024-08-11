@@ -11,8 +11,7 @@ class $AssetsColorsGen {
   const $AssetsColorsGen();
 
   /// File path: assets/colors/colors.xml
-  String get colors =>
-      'packages/reactive_design_pattern/assets/colors/colors.xml';
+  String get colors => 'packages/reactomic_design/assets/colors/colors.xml';
 
   /// List of all assets
   List<String> get values => [colors];
@@ -21,7 +20,7 @@ class $AssetsColorsGen {
 class AssetsToken {
   AssetsToken._();
 
-  static const String package = 'reactive_design_pattern';
+  static const String package = 'reactomic_design';
 
   static const $AssetsColorsGen colors = $AssetsColorsGen();
 }
