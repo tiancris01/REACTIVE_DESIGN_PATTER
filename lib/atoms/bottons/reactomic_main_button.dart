@@ -1,27 +1,78 @@
 import 'package:flutter/material.dart';
+import 'package:reactomic_design/atoms/bottons/supper_button.dart';
+import 'package:reactomic_design/foundations/colors_foundation.dart';
 import 'package:reactomic_design/foundations/fonts_foundation.dart';
 
-class ReactomicMainButton extends StatelessWidget {
+class ReactomicMainButton extends SupperButton {
   const ReactomicMainButton({
     super.key,
+    required super.label,
+    required super.onPressed,
+  });
+
+  factory ReactomicMainButton.outlined({
+    double stroke = 2.0,
     required String label,
     required VoidCallback onPressed,
-  })  : _label = label,
-        _onPressed = onPressed;
-
-  final String _label;
-  final VoidCallback _onPressed;
+  }) {
+    return _isOutlinedButtonRx(
+      label: label,
+      stroke: stroke,
+      onPressed: onPressed,
+    );
+  }
 
   @override
-  Widget build(BuildContext context) {
-    return ElevatedButton(
-      style: ButtonStyle(
-        padding: WidgetStateProperty.all<EdgeInsetsGeometry>(
-          const EdgeInsets.symmetric(horizontal: 84, vertical: 20),
+  ButtonStyle getButtonStyle(BuildContext context) {
+    final theme = Theme.of(context);
+    return ButtonStyle(
+      backgroundColor: WidgetStateProperty.all(
+        theme.brightness == Brightness.dark
+            ? ColorsFoundation.tertiary
+            : ColorsFoundation.primary,
+      ),
+      minimumSize: WidgetStateProperty.all(const Size(222, 54)),
+    );
+  }
+
+  @override
+  TextStyle getLabelStyle(BuildContext context) {
+    final theme = Theme.of(context);
+    return theme.brightness == Brightness.light
+        ? FontsFoundation.black.fz14.copyWith(color: ColorsFoundation.white)
+        : FontsFoundation.black.fz14.copyWith(color: ColorsFoundation.black);
+  }
+}
+
+class _isOutlinedButtonRx extends ReactomicMainButton {
+  final double _stroke;
+  const _isOutlinedButtonRx({
+    required super.label,
+    required super.onPressed,
+    double stroke = 2.0,
+  }) : _stroke = stroke;
+
+  @override
+  ButtonStyle getButtonStyle(BuildContext context) {
+    final theme = Theme.of(context);
+    return ButtonStyle(
+      minimumSize: WidgetStateProperty.all(const Size(222, 54)),
+      side: WidgetStateProperty.all(
+        BorderSide(
+          color: theme.brightness == Brightness.dark
+              ? theme.colorScheme.tertiary
+              : ColorsFoundation.black,
+          width: _stroke,
         ),
       ),
-      onPressed: _onPressed,
-      child: Text(_label, style: FontsFoundation.black.fz12),
     );
+  }
+
+  @override
+  TextStyle getLabelStyle(BuildContext context) {
+    final theme = Theme.of(context);
+    return theme.brightness == Brightness.dark
+        ? FontsFoundation.black.fz14.copyWith(color: ColorsFoundation.white)
+        : FontsFoundation.black.fz14.copyWith(color: ColorsFoundation.black);
   }
 }

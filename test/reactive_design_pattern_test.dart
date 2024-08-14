@@ -1,5 +1,13 @@
 import 'package:flutter_test/flutter_test.dart';
 
+import 'atoms/reactomic_main_button_test.dart';
+
 void main() {
-  test('adds one to input values', () {});
+  runTest();
+}
+
+void runTest() {
+  group("atoms", () {
+    reactomicMainButton();
+  });
 }
