@@ -8,7 +8,7 @@ void reactomicMainButton() {
   Widget createWidgetUnderTest() {
     return MaterialApp(
       home: Scaffold(
-        body: ReactomicMainButton(label: 'Reactomic Design', onPressed: () {}),
+        body: ReactomicMainButton(label: '', onPressed: () {}),
       ),
     );
   }

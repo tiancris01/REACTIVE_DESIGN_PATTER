@@ -4,6 +4,7 @@ class ColorsThemeExtention extends ThemeExtension<ColorsThemeExtention> {
   const ColorsThemeExtention({
     required this.primary,
     required this.secondary,
+    required this.tertiary,
     required this.background,
     required this.surface,
     required this.error,
@@ -16,6 +17,7 @@ class ColorsThemeExtention extends ThemeExtension<ColorsThemeExtention> {
 
   final Color primary;
   final Color secondary;
+  final Color tertiary;
   final Color background;
   final Color surface;
   final Color error;
@@ -29,6 +31,7 @@ class ColorsThemeExtention extends ThemeExtension<ColorsThemeExtention> {
   ThemeExtension<ColorsThemeExtention> copyWith({
     Color? primary,
     Color? secondary,
+    Color? tertiary,
     Color? background,
     Color? surface,
     Color? error,
@@ -41,6 +44,7 @@ class ColorsThemeExtention extends ThemeExtension<ColorsThemeExtention> {
     return ColorsThemeExtention(
       primary: primary ?? this.primary,
       secondary: secondary ?? this.secondary,
+      tertiary: tertiary ?? this.tertiary,
       background: background ?? this.background,
       surface: surface ?? this.surface,
       error: error ?? this.error,
@@ -61,6 +65,7 @@ class ColorsThemeExtention extends ThemeExtension<ColorsThemeExtention> {
     return ColorsThemeExtention(
       primary: Color.lerp(primary, other.primary, t)!,
       secondary: Color.lerp(secondary, other.secondary, t)!,
+      tertiary: Color.lerp(tertiary, other.tertiary, t)!,
       background: Color.lerp(background, other.background, t)!,
       surface: Color.lerp(surface, other.surface, t)!,
       error: Color.lerp(error, other.error, t)!,

@@ -4,27 +4,46 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:reactomic_design/foundations/colors_foundation.dart';
 
+/// AppTheme class
+/// This class is used to define the app theme.
+///
+/// It has two static methods [light] and [dark].
+/// Colors and fonts are defined using [ThemeExtension] class
 class AppTheme {
+  /// Singleton instance of AppTheme
   static final singleton = AppTheme._internal();
-
   AppTheme._internal();
-
   factory AppTheme() => singleton;
 
+  /// Light [ColorScheme] for the app
+  /// Colors are defined using [ColorsFoundation]
   static const lightColorScheme = ColorScheme.light(
-      brightness: Brightness.light,
-      primary: ColorsFoundation.primary,
-      tertiary: ColorsFoundation.tertiary);
+    brightness: Brightness.light,
+    primary: ColorsFoundation.primary,
+    secondary: ColorsFoundation.secondary,
+    tertiary: ColorsFoundation.tertiary,
+    error: ColorsFoundation.error,
+  );
 
+  /// Dark [ColorScheme] for the app
+  /// Colors are defined using [ColorsFoundation]
   static const dartkColorScheme = ColorScheme.dark(
-      brightness: Brightness.dark,
-      primary: ColorsFoundation.tertiary,
-      tertiary: ColorsFoundation.error);
+    brightness: Brightness.dark,
+    primary: ColorsFoundation.tertiary,
+    secondary: ColorsFoundation.secondary,
+    tertiary: ColorsFoundation.primary,
+    error: ColorsFoundation.error,
+  );
 
+  /// App colors defined using [ColorsThemeExtention]. It extends [ThemeExtension]
+  /// that allows to define custom colors for the app without the need to create separeted classes.
+  /// with static methods.
+  /// You can access the colors by the help of context.
   static const appColors = ColorsThemeExtention(
     primary: ColorsFoundation.primary,
     onPrimary: ColorsFoundation.white,
     secondary: ColorsFoundation.secondary,
+    tertiary: ColorsFoundation.tertiary,
     onSecondary: ColorsFoundation.black,
     error: ColorsFoundation.error,
     onError: ColorsFoundation.white,
@@ -34,8 +53,11 @@ class AppTheme {
     onSurface: ColorsFoundation.black,
   );
 
+  /// Lato font family
   static final _lato = GoogleFonts.lato();
-  static final _appTextTheme = FontExtention(
+
+  /// App fonts defined using [FontExtention]. It extends [ThemeExtension]
+  static final appTextTheme = FontExtention(
     latoBlack104: _lato.copyWith(
       fontSize: 104.0,
       fontWeight: FontWeight.w900,
@@ -102,23 +124,29 @@ class AppTheme {
     ),
   );
 
+  /// static method to get light theme
   static ThemeData light() {
     final defaultTheme = ThemeData.light();
     return defaultTheme.copyWith(
       colorScheme: lightColorScheme,
       extensions: [
         appColors,
-        _appTextTheme,
+        appTextTheme,
       ],
+      appBarTheme: defaultTheme.appBarTheme.copyWith(
+        backgroundColor: ColorsFoundation.secondary,
+        foregroundColor: ColorsFoundation.white,
+      ),
     );
   }
 
+  /// static method to get dark theme
   static ThemeData dark() {
     final defaultTheme = ThemeData.dark();
     return defaultTheme.copyWith(
       extensions: [
         appColors,
-        _appTextTheme,
+        appTextTheme,
       ],
       colorScheme: dartkColorScheme,
     );

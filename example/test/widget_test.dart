@@ -7,6 +7,10 @@
 
 import 'package:flutter_test/flutter_test.dart';
 
+import 'src/presentation/bloc/theme_bloc_test.dart';
+
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {});
+  group('Group of tests', () {
+    themeTest();
+  });
 }
