@@ -1,6 +1,10 @@
 import 'package:rxdart/subjects.dart';
 
 class ThemeBloc {
+  static final ThemeBloc _singleton = ThemeBloc._internal();
+  ThemeBloc._internal();
+  factory ThemeBloc() => _singleton;
+
   final stream = BehaviorSubject<bool>.seeded(false);
 
   void toggleTheme() {
