@@ -9,20 +9,20 @@ void themeTest() {
   });
 
   group('App theme ', () {
-    test('intial values should be correct', () {
-      expect(sut.isDarkMode, false);
+    test('initial values are correct', () {
+      expect(sut.stream.value, false);
     });
 
-    test('toggle theme should be switch to dark', () {
+    test('toggle theme', () {
       sut.toggleTheme();
-      expect(sut.isDarkMode, true);
+      expect(sut.stream.value, true);
     });
 
-    test('toggle theme should be switch back to light', () {
+    test('toggle theme', () {
       sut.toggleTheme();
-      expect(sut.isDarkMode, true);
+      expect(sut.stream.value, true);
       sut.toggleTheme();
-      expect(sut.isDarkMode, false);
+      expect(sut.stream.value, false);
     });
   });
 }

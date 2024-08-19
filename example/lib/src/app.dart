@@ -10,13 +10,15 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final themeBloc = ThemeBloc();
-    themeBloc.init();
 
     /// Theme bloc instance
     return StreamBuilder<bool>(
       stream: themeBloc.stream,
       // initialData: false,
       builder: (context, snapshot) {
+        if (snapshot.data == null) {
+          return const CircularProgressIndicator();
+        }
         return MaterialApp(
           title: 'Flutter Demo',
           // light theme for the app
@@ -27,7 +29,8 @@ class App extends StatelessWidget {
           debugShowCheckedModeBanner: false,
 
           /// Thememode is switched based on the stream value
-          themeMode: snapshot.data == false ? ThemeMode.light : ThemeMode.dark,
+          themeMode:
+              (snapshot.data == false) ? ThemeMode.light : ThemeMode.dark,
         );
       },
     );

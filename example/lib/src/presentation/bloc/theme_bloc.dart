@@ -1,6 +1,13 @@
-import 'dart:async';
+import 'package:rxdart/subjects.dart';
 
 class ThemeBloc {
+  final stream = BehaviorSubject<bool>.seeded(false);
+
+  void toggleTheme() {
+    stream.add(!stream.value);
+  }
+
+  /* 
   /// Stream controller for theme
   final _themeController = StreamController<bool>.broadcast();
 
@@ -31,4 +38,5 @@ class ThemeBloc {
   void dispose() {
     _themeController.close();
   }
+ */
 }

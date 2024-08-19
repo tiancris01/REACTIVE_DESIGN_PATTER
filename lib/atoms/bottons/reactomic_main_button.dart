@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:reactomic_design/atoms/bottons/supper_button.dart';
+import 'package:reactomic_design/atoms/bottons/main_button_interface.dart';
 import 'package:reactomic_design/foundations/colors_foundation.dart';
 import 'package:reactomic_design/foundations/fonts_foundation.dart';
 
-class ReactomicMainButton extends SupperButton {
+class ReactomicMainButton extends IMainButton {
   const ReactomicMainButton({
     super.key,
     required super.label,

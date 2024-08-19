@@ -1,6 +1,7 @@
 import 'package:example/src/core/extentions/extensions.dart';
 import 'package:example/src/presentation/bloc/theme_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:reactomic_design/atoms/bottons/reactomic_main_button.dart';
 
 class DashBoard extends StatelessWidget {
   final ThemeBloc themeBloc;
@@ -9,14 +10,16 @@ class DashBoard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final themeFonts = Theme.of(context).appFonts;
-    final themeColors = Theme.of(context).appColors;
+    // final themeColors = Theme.of(context).appColors;
     return Scaffold(
       appBar: AppBar(
         title: Text('SHOW CASES', style: themeFonts.latoBold18),
         actions: [
           IconButton(
             icon: Icon(
-              themeBloc.isDarkMode ? Icons.light_mode_rounded : Icons.dark_mode,
+              themeBloc.stream.value
+                  ? Icons.light_mode_rounded
+                  : Icons.dark_mode,
             ),
             onPressed: () {
               themeBloc.toggleTheme();
@@ -28,26 +31,10 @@ class DashBoard extends StatelessWidget {
         // crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           const SizedBox(height: 16),
-          Card(
-            shadowColor: themeColors.tertiary,
-            elevation: 1.0,
-            shape: const RoundedRectangleBorder(
-              borderRadius: BorderRadius.zero,
-            ),
-            child: ListTile(
-              onTap: () {},
-            ),
-          ),
-          Card(
-            shadowColor: themeColors.tertiary,
-            elevation: 1.0,
-            shape: const RoundedRectangleBorder(
-              borderRadius: BorderRadius.zero,
-            ),
-            child: ListTile(
-              onTap: () {},
-            ),
-          )
+          /* ReactomicMainButton(
+            label: 'REGISTER',
+            onPressed: () {},
+          ), */
         ],
       ),
     );
