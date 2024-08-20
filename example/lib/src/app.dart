@@ -1,11 +1,10 @@
-import 'package:example/src/core/theme/app_colors/app_colors.dart';
+import 'package:example/src/core/services/colors_services/color_service.dart';
 import 'package:example/src/core/theme/app_fonts.dart/app_fonts.dart';
 import 'package:example/src/core/theme/app_theme.dart';
 import 'package:example/src/presentation/bloc/theme_bloc.dart';
 import 'package:example/src/presentation/dashboad.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:reactomic_design/foundations/colors_foundation.dart';
 
 /// The main app widget
 class App extends StatelessWidget {
@@ -14,21 +13,10 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final lato = GoogleFonts.lato();
+    final colorService = ColorService(LocalColors());
     final themeBloc = ThemeBloc();
     final appTheme = AppTheme(
-      appColors: AppColors(
-        primary: ColorsFoundation.primary,
-        secondary: ColorsFoundation.secondary,
-        tertiary: ColorsFoundation.tertiary,
-        background: ColorsFoundation.white,
-        surface: ColorsFoundation.white,
-        error: ColorsFoundation.error,
-        onPrimary: ColorsFoundation.white,
-        onSecondary: ColorsFoundation.black,
-        onBackground: ColorsFoundation.black,
-        onSurface: ColorsFoundation.black,
-        onError: ColorsFoundation.white,
-      ),
+      appColors: colorService.getAppColors(),
       appFonts: AppFonts.fromGoogle(lato),
     );
 

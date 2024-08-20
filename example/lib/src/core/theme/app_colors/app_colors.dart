@@ -60,3 +60,7 @@ class AppColors {
         onError.hashCode;
   }
 }
+
+abstract class IColorsApp {}
+
+class OtherColors implements IColorsApp {}
