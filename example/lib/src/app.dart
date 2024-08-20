@@ -1,7 +1,11 @@
-import 'package:example/src/core/theme/app_theme.dart';
+import 'package:example/src/core/theme/app_colors/app_colors.dart';
+import 'package:example/src/core/theme/app_fonts.dart/app_fonts.dart';
+import 'package:example/src/core/theme/app_theme_2.dart';
 import 'package:example/src/presentation/bloc/theme_bloc.dart';
 import 'package:example/src/presentation/dashboad.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:reactomic_design/foundations/colors_foundation.dart';
 
 /// The main app widget
 class App extends StatelessWidget {
@@ -9,7 +13,24 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final lato = GoogleFonts.lato();
     final themeBloc = ThemeBloc();
+    final appTheme = AppTheme2(
+      appColors: AppColors(
+        primary: ColorsFoundation.primary,
+        secondary: ColorsFoundation.secondary,
+        tertiary: ColorsFoundation.tertiary,
+        background: ColorsFoundation.white,
+        surface: ColorsFoundation.white,
+        error: ColorsFoundation.error,
+        onPrimary: ColorsFoundation.white,
+        onSecondary: ColorsFoundation.black,
+        onBackground: ColorsFoundation.black,
+        onSurface: ColorsFoundation.black,
+        onError: ColorsFoundation.white,
+      ),
+      appFonts: AppFonts.google(lato),
+    );
 
     /// Theme bloc instance
     return StreamBuilder<bool>(
@@ -22,15 +43,14 @@ class App extends StatelessWidget {
         return MaterialApp(
           title: 'Flutter Demo',
           // light theme for the app
-          theme: AppTheme.light(),
+          theme: appTheme.toThemeData(
+            snapshot.data == false ? LightScheme() : DarkScheme(),
+          ),
           // dark theme for the app
-          darkTheme: AppTheme.dark(),
           home: DashBoard(themeBloc: themeBloc),
           debugShowCheckedModeBanner: false,
 
           /// Thememode is switched based on the stream value
-          themeMode:
-              (snapshot.data == false) ? ThemeMode.light : ThemeMode.dark,
         );
       },
     );
