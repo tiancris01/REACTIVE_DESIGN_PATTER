@@ -38,7 +38,7 @@ class AppFonts {
     required this.latoRegular11,
   });
 
-  factory AppFonts.google(TextStyle font) {
+  factory AppFonts.fromGoogle(TextStyle font) {
     return AppFonts(
       latoBlack104: font.copyWith(
         fontSize: 104.0,

@@ -1,7 +1,6 @@
 import 'package:example/src/core/extentions/extensions.dart';
 import 'package:example/src/presentation/bloc/theme_bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:reactomic_design/atoms/bottons/reactomic_main_button.dart';
 
 class DashBoard extends StatelessWidget {
   final ThemeBloc themeBloc;
@@ -28,10 +27,10 @@ class DashBoard extends StatelessWidget {
           )
         ],
       ),
-      body: Column(
+      body: const Column(
         // crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          const SizedBox(height: 16),
+          SizedBox(height: 16),
           /* ReactomicMainButton(
             label: 'REGISTER',
             onPressed: () {},

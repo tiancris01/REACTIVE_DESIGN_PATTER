@@ -29,7 +29,7 @@ class App extends StatelessWidget {
         onSurface: ColorsFoundation.black,
         onError: ColorsFoundation.white,
       ),
-      appFonts: AppFonts.google(lato),
+      appFonts: AppFonts.fromGoogle(lato),
     );
 
     /// Theme bloc instance
