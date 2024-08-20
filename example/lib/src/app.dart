@@ -1,6 +1,6 @@
 import 'package:example/src/core/theme/app_colors/app_colors.dart';
 import 'package:example/src/core/theme/app_fonts.dart/app_fonts.dart';
-import 'package:example/src/core/theme/app_theme_2.dart';
+import 'package:example/src/core/theme/app_theme.dart';
 import 'package:example/src/presentation/bloc/theme_bloc.dart';
 import 'package:example/src/presentation/dashboad.dart';
 import 'package:flutter/material.dart';
@@ -15,7 +15,7 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     final lato = GoogleFonts.lato();
     final themeBloc = ThemeBloc();
-    final appTheme = AppTheme2(
+    final appTheme = AppTheme(
       appColors: AppColors(
         primary: ColorsFoundation.primary,
         secondary: ColorsFoundation.secondary,

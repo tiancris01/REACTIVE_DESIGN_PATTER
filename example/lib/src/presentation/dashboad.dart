@@ -9,11 +9,12 @@ class DashBoard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final themeFonts = Theme.of(context).appFonts;
+    final theme = Theme.of(context);
+    final fonts = theme.appFonts;
     // final themeColors = Theme.of(context).appColors;
     return Scaffold(
       appBar: AppBar(
-        title: Text('SHOW CASES', style: themeFonts.latoBold18),
+        title: Text('SHOW CASES', style: fonts.latoBlack24),
         actions: [
           IconButton(
             icon: Icon(
