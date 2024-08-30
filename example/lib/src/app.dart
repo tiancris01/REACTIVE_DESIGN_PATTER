@@ -12,9 +12,10 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final lato = GoogleFonts.lato();
-    final colorService = ColorService(LocalColors());
     final themeBloc = ThemeBloc();
+    final lato = GoogleFonts.lato();
+    //TODO: Find a better way to instantiate the color and fonst
+    final colorService = ColorService(LocalColors());
     final appTheme = AppTheme(
       appColors: colorService.getAppColors(),
       appFonts: AppFonts.fromGoogle(lato),

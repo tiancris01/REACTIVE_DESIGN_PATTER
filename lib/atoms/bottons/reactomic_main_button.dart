@@ -15,7 +15,7 @@ class ReactomicMainButton extends IMainButton {
     required String label,
     required VoidCallback onPressed,
   }) {
-    return _isOutlinedButtonRx(
+    return _OutlinedButton(
       label: label,
       stroke: stroke,
       onPressed: onPressed,
@@ -44,9 +44,9 @@ class ReactomicMainButton extends IMainButton {
   }
 }
 
-class _isOutlinedButtonRx extends ReactomicMainButton {
+class _OutlinedButton extends ReactomicMainButton {
   final double _stroke;
-  const _isOutlinedButtonRx({
+  const _OutlinedButton({
     required super.label,
     required super.onPressed,
     double stroke = 2.0,

@@ -1,6 +1,8 @@
 import 'package:example/src/core/extentions/extensions.dart';
 import 'package:example/src/presentation/bloc/theme_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
+import 'package:reactomic_design/atoms/bottons/reactomic_main_button.dart';
 
 class DashBoard extends StatelessWidget {
   final ThemeBloc themeBloc;
@@ -27,16 +29,23 @@ class DashBoard extends StatelessWidget {
           )
         ],
       ),
-      body: const Column(
+      body: Column(
         // crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          SizedBox(height: 16),
-          /* ReactomicMainButton(
+          const SizedBox(height: 16),
+          ReactomicMainButton(
             label: 'REGISTER',
             onPressed: () {},
-          ), */
+          ),
         ],
       ),
     );
   }
+}
+
+class _ShimmerFilter extends RenderProxyBox {
+  _ShimmerFilter();
+
+  @override
+  ShaderMaskLayer? get layer => super.layer as ShaderMaskLayer?;
 }
